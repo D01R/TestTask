@@ -1,4 +1,4 @@
-import { productsStore, refetchProducts } from "../../main.js"
+import { productsStore, refetchProducts } from "../main.js"
 
 export const Pagination = () => {
     const list_wrapp = document.querySelector('.list_wrapp')

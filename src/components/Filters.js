@@ -1,5 +1,5 @@
-import { CategoryBar } from "../CategoryBar/index.js"
-import { ItemsOnPage } from "../ItemsOnPage/index.js"
+import { CategoryBar } from "./CategoryBar.js"
+import { ItemsOnPage } from "./ItemsOnPage.js"
 
 export const Filters = () => {
     const filter = document.createElement('div')

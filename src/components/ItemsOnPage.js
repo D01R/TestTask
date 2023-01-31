@@ -1,9 +1,10 @@
-import { productsStore, refetchProducts } from "../../main.js"
+import {NUM_PAGES} from '../constants.js'
+import { productsStore, refetchProducts } from '../main.js'
 
-export const CategoryBar = () => {
-    let categories = document.createElement('div')
-    categories.className = 'dropdown_category dropdown'
-    categories.innerHTML = `
+export const ItemsOnPage = () => {
+    let num_pages = document.createElement('div')
+    num_pages.className = 'dropdown_item dropdown'
+    num_pages.innerHTML = `
         <div class='select'>
             <span class='selected selected_item'>-</span>
             <div class='caret'></div>
@@ -12,12 +13,11 @@ export const CategoryBar = () => {
         </ul>
     `
 
-    const select = categories.querySelector('.select')
-    const caret = categories.querySelector('.caret')
-    const menu = categories.querySelector('.dropdown_list')
-
-
-    productsStore.categories.forEach(i => {
+    const select = num_pages.querySelector('.select')
+    const caret = num_pages.querySelector('.caret')
+    const menu = num_pages.querySelector('.dropdown_list')
+    
+    NUM_PAGES.forEach(i => {
         let item = document.createElement('li')
         item.innerHTML = i
         item.addEventListener('click', () => {
@@ -25,13 +25,11 @@ export const CategoryBar = () => {
             select.classList.remove('select-clicked')
             caret.classList.remove('caret-rotate')
             menu.classList.remove('dropdown_list_open')
-            productsStore.setSelectedCategory(i)
-            productsStore.setPage(1)
+            productsStore.setLimit(i)
             refetchProducts()
         })
         menu.appendChild(item)
     })
-
 
     select.addEventListener('click', () => {
         select.classList.toggle('select-clicked')
@@ -41,15 +39,15 @@ export const CategoryBar = () => {
 
     document.addEventListener('click', e => {
         let target = e.target;
-        let its_categories = target == categories || categories.contains(target);
+        let its_num_pages = target == num_pages || num_pages.contains(target);
         let menu_is_open = menu.classList.contains('dropdown_list_open');
         
-        if (!its_categories && menu_is_open) {
+        if (!its_num_pages && menu_is_open) {
             select.classList.remove('select-clicked')
             caret.classList.remove('caret-rotate')
             menu.classList.remove('dropdown_list_open');
         }
     })
 
-    return categories
+    return num_pages
 }

@@ -1,10 +1,6 @@
 import { ProductsStore } from "./store/index.js";
-import { fetchCategories, fetchProducts } from "./http/index.js";
-import { List } from "./components/List/index.js";
-import { Filters } from "./components/Filters/index.js";
-import { fetchProductsByCategory } from "./http/productsAPI.js";
-import { Pagination } from "./components/Pagination/index.js";
-import { Loader } from "./components/Loader/index.js";
+import { fetchCategories, fetchProducts, fetchProductsByCategory } from "./http/index.js";
+import { List, Filters, Pagination, Loader } from "./components/index.js";
 
 export const productsStore = new ProductsStore()
 

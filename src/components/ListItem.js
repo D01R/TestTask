@@ -1,4 +1,4 @@
-import { ItemInfo } from "../ItemInfo/index.js";
+import { ItemInfo } from "./ItemInfo.js";
 
 export const ListItem = (item) => {
     let new_item = document.createElement("div");

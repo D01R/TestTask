@@ -1,5 +1,3 @@
-import { productsStore } from "../../main.js"
-
 export const ItemInfo = (item) => {
     const wrapp = document.querySelector(".list_wrapp")
     const delet = wrapp.querySelector('.item_info')

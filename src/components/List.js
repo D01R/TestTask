@@ -1,5 +1,5 @@
-import { productsStore } from '../../main.js'
-import { ListItem } from '../ListItem/index.js'
+import { productsStore } from '../main.js'
+import { ListItem } from './ListItem.js'
 
 export const List = () => {
     const container = document.querySelector('.list_wrapp')
